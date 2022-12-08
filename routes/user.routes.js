@@ -56,6 +56,25 @@ router.post("/login", async (request, response) => {
         console.log(error);
         return response.status(500).json({msg: "Ops... algo de errado não está certo"});
     }
+});
+
+// GET USUÁRIO LOGADO
+router.get("/profile", isAuth, attachCurrentUser, async (request, response) => {
+    try {
+        const loggedUser = request.currentUser;
+
+        if(!user) {
+            return response.status(404).json({msg: "Usuário não encontrado."})
+        }
+
+        const user = await UserModel.findById(loggedUser._id);
+        delete user._doc.password;
+        return response.status(200),json(user);
+
+    } catch (error) {
+        console.log(error);
+        return response.status(500).json({msg: "Ops... algo de errado não está certo"});
+    }
 })
 
 export default router;
