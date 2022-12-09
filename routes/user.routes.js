@@ -79,4 +79,33 @@ router.get("/profile", isAuth, attachCurrentUser, async (request, response) => {
     }
 })
 
+// ALTERAR USUÁRIO
+router.put("/edit/:id", async (request, response) => {
+    try {
+        const { id } = request.params;
+        const update = await UserModel.findByIdAndUpdate(
+            id,
+            {...request.body},
+            {new: true, runValidators: true});
+        return response.status(200).json(update);
+
+    } catch (error) {
+        console.log(error);
+        return response.status(500).json({msg: "Ops... algo de errado não está certo"});
+    }
+})
+
+// DELETAR USUÁRIO
+router.delete("/delete/:id", async (request, response) => {
+    try {
+        const { id } = request.params;
+        const deleteUser = await UserModel.findByIdAndDelete(id);
+        return response.status(204).json(deleteUser);
+
+    } catch (error) {
+        console.log(error);
+        return response.status(500).json({msg: "Ops... algo de errado não está certo"});
+    }
+})
+
 export default router;
