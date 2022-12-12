@@ -54,7 +54,7 @@ router.put("/edit/:id", async (request, response) => {
             return response.status(404).json({msg: "Plano de saúde não encontrado."})
         }
         return response.status(200).json(updateHealthPlan);
-        
+
     } catch (error) {
         console.log(error);
         return response.status(500).json({msg: "Ops... algo de errado não está certo"});
