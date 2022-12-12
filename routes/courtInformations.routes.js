@@ -13,7 +13,7 @@ router.get("/", async (request, response) => {
         console.log(error);
         return response.status(500).json({msg: "Ops... algo de errado não está certo"});
     }
-})
+});
 
 // GET BY ID
 router.get("/:id", async (request, response) => {
@@ -30,7 +30,7 @@ router.get("/:id", async (request, response) => {
         console.log(error);
         return response.status(500).json({msg: "Ops... algo de errado não está certo"});
     }
-})
+});
 
 // POST
 router.post("/create", async (request, response) => {
@@ -42,7 +42,7 @@ router.post("/create", async (request, response) => {
         console.log(error);
         return response.status(500).json({msg: "Ops... algo de errado não está certo"});
     }
-})
+});
 
 // PUT
 router.put("/edit/:id", async (request, response) => {
@@ -59,19 +59,23 @@ router.put("/edit/:id", async (request, response) => {
         console.log(error);
         return response.status(500).json({msg: "Ops... algo de errado não está certo"});
     }
-})
+});
 
 // DELETE
 router.delete("/delete/:id", async (request, response) => {
     try {
         const { id } = request.params;
         const deleteCourtInformation = await CourtInformationModel.findByIdAndDelete(id);
+        
+        if (!deleteCourtInformation) {
+            return response.status(404).json({msg: "Processo não encontrado."})
+        }
         return response.status(204).json(deleteCourtInformation);
 
     } catch (error) {
         console.log(error);
         return response.status(500).json({msg: "Ops... algo de errado não está certo"});
     }
-})
+});
 
 export default router;
