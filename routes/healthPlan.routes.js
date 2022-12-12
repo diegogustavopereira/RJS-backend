@@ -36,7 +36,7 @@ router.get("/:id", async (request, response) => {
 router.post("/create", async (request, response) => {
     try {
         const createNew = await HealthPlanModel.create({...request.body});
-        return response.status(200).json(createNew);
+        return response.status(201).json(createNew);
 
     } catch (error) {
         console.log(error);

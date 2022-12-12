@@ -16,7 +16,7 @@ app.use(express.json());
 
 app.use("/user", userRouter);
 app.use("/court-information", courtInformationRouter);
-app.use("health-plan", healthPlanRouter);
+app.use("/health-plan", healthPlanRouter);
 
 
 app.listen(Number(process.env.PORT), () => {
