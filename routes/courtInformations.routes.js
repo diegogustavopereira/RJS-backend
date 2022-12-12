@@ -1,4 +1,4 @@
-import express, { request } from "express";
+import express from "express";
 import CourtInformationModel from "../models/courtInformations.model.js";
 
 const router = express.Router();
