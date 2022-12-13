@@ -5,6 +5,7 @@ import userRouter from "./routes/user.routes.js";
 import courtInformationRouter from "./routes/courtInformations.routes.js";
 import healthPlanRouter from "./routes/healthPlan.routes.js";
 import beneficiaryRouter from "./routes/beneficiaryHelthPlan.routes.js";
+import drugsRouter from "./routes/drugs.routes.js";
 import cors from "cors";
 
 dotenv.config();
@@ -19,6 +20,7 @@ app.use("/user", userRouter);
 app.use("/court-information", courtInformationRouter);
 app.use("/health-plan", healthPlanRouter);
 app.use("/beneficiary", beneficiaryRouter);
+app.use("/drug", drugsRouter);
 
 
 app.listen(Number(process.env.PORT), () => {

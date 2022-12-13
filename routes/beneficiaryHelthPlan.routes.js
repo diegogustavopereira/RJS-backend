@@ -11,7 +11,7 @@ router.get("/", async (request, response) => {
 
     } catch (error) {
         console.log(error);
-        return response.status(500).json({msg: "Ops... algo de errado não está certo"});
+        return response.status(500).json({msg: "Ops... algo de errado não está certo."});
     }
 });
 
@@ -28,7 +28,7 @@ router.get("/:id", async (request, response) => {
 
     } catch (error) {
         console.log(error);
-        return response.status(500).json({msg: "Ops... algo de errado não está certo"});
+        return response.status(500).json({msg: "Ops... algo de errado não está certo."});
     }
 });
 
