@@ -57,7 +57,7 @@ router.put("/edit/:id", async (request, response) => {
 
     } catch (error) {
         console.log(error);
-        return response.status(500).json({msg: "Ops... algo de errado não está certo"});
+        return response.status(500).json({msg: "Ops... algo de errado não está certo."});
     }
 });
 
@@ -74,7 +74,7 @@ router.delete("/delete/:id", async (request, response) => {
 
     } catch (error) {
         console.log(error);
-        return response.status(500).json({msg: "Ops... algo de errado não está certo"});
+        return response.status(500).json({msg: "Ops... algo de errado não está certo."});
     }
 });
 
