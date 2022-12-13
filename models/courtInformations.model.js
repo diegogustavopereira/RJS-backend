@@ -5,8 +5,9 @@ const CourtInformationSchema = new Schema(
         processNumber: {
             type: String,
             required: true, //obrigatório
+            unique: true,
             trim: true, //vai aparar eventual espaço antes e depois do e-mail informado
-            match: /0000000-00\.0000\.0\.00\.0000/i 
+            // match: /0000000-00\.0000\.0\.00\.0000/i 
         },
         beneficiaryCPF: {
             type: String,
@@ -21,7 +22,7 @@ const CourtInformationSchema = new Schema(
         diseaseCID: {
             type: String,
             required: true,
-            match: /^.*?(?=[\+\^#%&$\*:<>\?/\{\|\}\[\]\\\)\(]).*$/g 
+            // match: /^.*?(?=[\+\^#%&$\*:<>\?/\{\|\}\[\]\\\)\(]).*$/g 
         },
         drugs: [
             {
