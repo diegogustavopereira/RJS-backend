@@ -24,14 +24,9 @@ const CourtInformationSchema = new Schema(
             required: true,
             // match: /^.*?(?=[\+\^#%&$\*:<>\?/\{\|\}\[\]\\\)\(]).*$/g 
         },
-        drugs: [
-            {
-                drug: {
-                    type: Schema.Types.ObjectId,
-                    ref: "Drug"
-                }
-            }
-        ],
+        drugs: {
+            type: String,
+        },
         price: {
             type: Number,
             required: true
