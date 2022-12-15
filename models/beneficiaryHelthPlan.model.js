@@ -10,7 +10,7 @@ const BeneficiaryHealthPlanSchema = new Schema(
             type: String,
             required: true, //obrigatório
             trim: true, //vai aparar eventual espaço antes e depois do e-mail informado
-            match: /^\d{3}\.\d{3}\.\d{3}\-\d{2}$/ 
+            // match: /^\d{3}\.\d{3}\.\d{3}\-\d{2}$/ 
         },
         healthPlan: {
             type: Schema.Types.ObjectId,
