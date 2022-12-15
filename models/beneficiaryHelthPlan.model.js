@@ -13,8 +13,7 @@ const BeneficiaryHealthPlanSchema = new Schema(
             // match: /^\d{3}\.\d{3}\.\d{3}\-\d{2}$/ 
         },
         healthPlan: {
-            type: Schema.Types.ObjectId,
-            ref: "HealthPlan"
+            type: String,
         }
     }
 )

@@ -9,6 +9,7 @@ const CourtInformationSchema = new Schema(
             trim: true, //vai aparar eventual espaço antes e depois do e-mail informado
             // match: /0000000-00\.0000\.0\.00\.0000/i 
         },
+
         persons: [ 
             {
             cpfCnpj: {
@@ -50,6 +51,8 @@ const CourtInformationSchema = new Schema(
                 }
             }
         ]
+
+       
     }
 )
 
