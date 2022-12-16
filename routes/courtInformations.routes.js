@@ -46,7 +46,7 @@ router.get("/autor/:idprocess", async (request, response) => {
         drugs: [],
         total: ""
     }
-////
+
     const { idprocess } = request.params;
 
     const process = await CourtInformationModel.findById(idprocess)
