@@ -12,7 +12,7 @@ import cors from "cors";
 dotenv.config();
 
 dbConnect();
-
+/////
 const app = express();
 // app.use(cors({origin: process.env.REACT_URL}));
 app.use(cors());
