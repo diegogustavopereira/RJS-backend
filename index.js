@@ -14,6 +14,10 @@ dotenv.config();
 dbConnect();
 
 const app = express();
+<<<<<<< HEAD
+// app.use(cors({origin: process.env.REACT_URL}));
+=======
+>>>>>>> daf746e7b13268ab36b12af37989553493eba2c5
 app.use(cors());
 app.use(express.json());
 
