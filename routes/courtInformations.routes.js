@@ -76,8 +76,8 @@ const healthPlanId = helthperson.healthPlan;
 
 const healthPlanDate = await HealthPlanModel.findById(healthPlanId);
 console.log(healthPlanDate)
-cobranca.healthPlanName = healthPlanDate.healthPlan.name;
-cobranca.healthPlanNameCnpj = healthPlanDate.healthPlan.CNPJ;
+cobranca.healthPlanName = healthPlanDate.name;
+cobranca.healthPlanNameCnpj = healthPlanDate.CNPJ;
 
 cobranca.total = cobranca.drugs.reduce((acc, currentValue) => {
     return acc + (currentValue.amount * currentValue.price)
