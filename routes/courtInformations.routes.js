@@ -71,9 +71,11 @@ router.get("/autor/:idprocess", async (request, response) => {
 // cobranca.healthPlanNameCnpj = helthperson.healthPlan.CNPJ;
 
 const helthperson = await BeneficiaryHealthPlanModel.findOne({CPF: cpf});
+console.log(helthperson);
 const healthPlanId = helthperson.healthPlan;
 
 const healthPlanDate = await HealthPlanModel.findById(healthPlanId);
+console.log(healthPlanDate)
 cobranca.healthPlanName = healthPlanDate.healthPlan.name;
 cobranca.healthPlanNameCnpj = healthPlanDate.healthPlan.CNPJ;
 
