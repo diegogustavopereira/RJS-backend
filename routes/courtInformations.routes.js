@@ -66,11 +66,16 @@ router.get("/autor/:idprocess", async (request, response) => {
     cobranca.cpfperson = cpf;
     cobranca.namePerson = namecpf;
 
-const helthperson = await BeneficiaryHealthPlanModel.findOne({CPF: cpf}).populate("healthPlan")
-console.log(helthperson);
+// const helthperson = await BeneficiaryHealthPlanModel.findOne({CPF: cpf}).populate("healthPlan")
+// cobranca.healthPlanName = helthperson.healthPlan.name;
+// cobranca.healthPlanNameCnpj = helthperson.healthPlan.CNPJ;
 
-cobranca.healthPlanName = helthperson.healthPlan.name;
-cobranca.healthPlanNameCnpj = helthperson.healthPlan.CNPJ;
+const helthperson = await BeneficiaryHealthPlanModel.findOne({CPF: cpf});
+const healthPlanId = helthperson.healthPlan;
+
+const healthPlanDate = await HealthPlanModel.findById(healthPlanId);
+cobranca.healthPlanName = healthPlanDate.healthPlan.name;
+cobranca.healthPlanNameCnpj = healthPlanDate.healthPlan.CNPJ;
 
 cobranca.total = cobranca.drugs.reduce((acc, currentValue) => {
     return acc + (currentValue.amount * currentValue.price)
